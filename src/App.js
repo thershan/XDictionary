@@ -14,7 +14,7 @@ function App() {
     const trimmedSearchTerm = searchTerm.trim();
 
     if (!trimmedSearchTerm) {
-      setResult("");  // Ensure the result is cleared if no search term is entered
+      setResult("");  // Clear the result if no search term is entered
       return;
     }
 
@@ -26,6 +26,7 @@ function App() {
       setResult(foundWord.meaning);  // Display the meaning directly
     } else {
       setResult("Word not found in the dictionary.");  // Display exact message
+      console.log("Word not found in the dictionary.");  // Debugging line to confirm the message is set
     }
   };
 
