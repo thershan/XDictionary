@@ -14,7 +14,7 @@ function App() {
     const trimmedSearchTerm = searchTerm.trim();
 
     if (!trimmedSearchTerm) {
-      setResult('');  // Clear the result if no search term is entered
+      setResult("Word not found in the dictionary.");  // Show error message when no search term is entered
       return;
     }
 
@@ -23,9 +23,13 @@ function App() {
     );
 
     if (foundWord) {
-      setResult(<div><strong>Definition:</strong> {foundWord.meaning}</div>);  // Display the meaning with "Definition:" heading
+      setResult(
+        <div>
+          <strong>Definition:</strong> {foundWord.meaning}
+        </div>
+      );
     } else {
-      setResult("Word not found in the dictionary.");  // Display only this exact message for incorrect words
+      setResult("Word not found in the dictionary.");  // Show error message when word is not found
     }
   };
 
