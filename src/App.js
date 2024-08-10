@@ -40,7 +40,7 @@ function App() {
         style={{ padding: '10px', fontSize: '16px', marginRight: '10px' }}
       />
       <button onClick={handleSearch} style={{ padding: '10px', fontSize: '16px' }}>Search</button>
-      <p style={{ marginTop: '20px', fontSize: '18px' }}>{result}</p>
+      <p style={{ marginTop: '20px', fontSize: '18px', whiteSpace: 'nowrap' }}>{result}</p>
     </div>
   );
 }
