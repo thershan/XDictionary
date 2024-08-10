@@ -14,7 +14,7 @@ function App() {
     const trimmedSearchTerm = searchTerm.trim();
 
     if (!trimmedSearchTerm) {
-      setResult("Please enter a word to search.");
+      setResult("Definition: Please enter a word to search.");
       return;
     }
 
@@ -23,15 +23,15 @@ function App() {
     );
 
     if (foundWord) {
-      setResult(foundWord.meaning);
+      setResult(`Definition: ${foundWord.meaning}`);
     } else {
-      setResult("Word not found in the dictionary.");
+      setResult("Definition: Word not found in the dictionary.");
     }
   };
 
   return (
     <div style={{ padding: '20px' }}>
-      <h1>XDictionary</h1>
+      <h1>Dictionary App</h1>
       <input 
         type="text" 
         value={searchTerm} 
