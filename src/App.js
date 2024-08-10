@@ -14,7 +14,7 @@ function App() {
     const trimmedSearchTerm = searchTerm.trim();
 
     if (!trimmedSearchTerm) {
-      setResult("");  // Clear the result if no search term is entered
+      setResult("");  // Ensure the result is cleared if no search term is entered
       return;
     }
 
