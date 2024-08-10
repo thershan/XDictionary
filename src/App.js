@@ -14,7 +14,7 @@ function App() {
     const trimmedSearchTerm = searchTerm.trim();
 
     if (!trimmedSearchTerm) {
-      setResult("Word not found in the dictionary.");  // Show error message when no search term is entered
+      setResult("");  // Clear the result if no search term is entered
       return;
     }
 
@@ -23,36 +23,25 @@ function App() {
     );
 
     if (foundWord) {
-      setResult(
-        <div>
-          <strong>Definition:</strong> {foundWord.meaning}
-        </div>
-      );
+      setResult(foundWord.meaning);  // Display the meaning directly
     } else {
-      setResult("Word not found in the dictionary.");  // Show error message when word is not found
+      setResult("Word not found in the dictionary.");  // Display exact message
     }
   };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1 style={{ marginBottom: '20px' }}>Dictionary App</h1>
-      <div style={{ marginBottom: '20px' }}>
-        <input 
-          type="text" 
-          value={searchTerm} 
-          onChange={(e) => setSearchTerm(e.target.value)} 
-          placeholder="Search for a word..." 
-          style={{ padding: '10px', fontSize: '16px', border: '1px solid #ccc' }}
-        />
-        <button 
-          onClick={handleSearch} 
-          style={{ padding: '10px 20px', fontSize: '16px', cursor: 'pointer', border: '1px solid #ccc', marginLeft: '-1px' }}
-        >
-          Search
-        </button>
-      </div>
-      <div style={{ fontSize: '18px', marginTop: '20px' }}>
-        {result}
+    <div className="App">
+      <h1>Dictionary App</h1>
+      <input 
+        type="text" 
+        placeholder="Search for a word..." 
+        value={searchTerm} 
+        onChange={(e) => setSearchTerm(e.target.value)} 
+      />
+      <button onClick={handleSearch}>Search</button>
+      <div className="result">
+        <h3>Definition:</h3>
+        <p>{result}</p>
       </div>
     </div>
   );
