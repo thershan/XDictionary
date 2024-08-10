@@ -14,7 +14,7 @@ function App() {
     const trimmedSearchTerm = searchTerm.trim();
 
     if (!trimmedSearchTerm) {
-      setResult("Definition: Please enter a word to search.");
+      setResult("");  // No message if no search term is entered
       return;
     }
 
@@ -23,9 +23,9 @@ function App() {
     );
 
     if (foundWord) {
-      setResult(`Definition: ${foundWord.meaning}`);
+      setResult(`Definition:\n${foundWord.meaning}`);
     } else {
-      setResult("Definition: Word not found in the dictionary.");
+      setResult("\nWord not found in the dictionary.");
     }
   };
 
@@ -36,11 +36,14 @@ function App() {
         type="text" 
         value={searchTerm} 
         onChange={(e) => setSearchTerm(e.target.value)} 
-        placeholder="Enter a word"
+        placeholder="Search for a word"
         style={{ padding: '10px', fontSize: '16px', marginRight: '10px' }}
       />
       <button onClick={handleSearch} style={{ padding: '10px', fontSize: '16px' }}>Search</button>
-      <p style={{ marginTop: '20px', fontSize: '18px', whiteSpace: 'nowrap' }}>{result}</p>
+      <div style={{ marginTop: '20px', fontSize: '18px' }}>
+        
+        <p>{result}</p>
+      </div>
     </div>
   );
 }
